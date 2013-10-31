@@ -1,0 +1,8 @@
+.*.swp
+.swo
+*.scratch.*
+.DS_Store
+*.pid
+bin-stubs
+*.tmproj
+workfiles
