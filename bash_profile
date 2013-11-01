@@ -18,7 +18,9 @@ export EDITOR=vim
 PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:$PATH
 export PATH
 
-eval "$(hub alias -s)"
+if [ -f /usr/local/bin/hub ]; then
+  eval "$(hub alias -s)"
+fi
 
 " Make calls to rvm act on rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
