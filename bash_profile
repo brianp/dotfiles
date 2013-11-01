@@ -22,7 +22,7 @@ if [ -f /usr/local/bin/hub ]; then
   eval "$(hub alias -s)"
 fi
 
-" Make calls to rvm act on rbenv
+# Make calls to rvm act on rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 function rvm () {
