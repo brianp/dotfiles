@@ -5,6 +5,6 @@ for name in *; do
 
   if [ $name != 'install.sh' ]; then
     echo "Creating $target"
-    ln -s "$PWD/$name" "$target"
+    ln -sn "$PWD/$name" "$target" --force
   fi
 done
