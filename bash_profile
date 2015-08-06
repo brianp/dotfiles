@@ -21,14 +21,3 @@ export PATH
 if [ -f /usr/local/bin/hub ]; then
   eval "$(hub alias -s)"
 fi
-
-# Make calls to rvm act on rbenv
-if [ -f $HOME/.rbenv ]; then
-  export PATH="$HOME/.rbenv/bin:$PATH"
-  eval "$(rbenv init -)"
-  function rvm () {
-    if [[ $1 == 'use' ]]; then
-      rbenv shell $2
-    fi
-  }
-fi
