@@ -1,5 +1,6 @@
 MAGICK_HOME="/usr/local/bin"
 DYLD_LIBRARY_PATH="$MAGICK_HOME/lib"
+export GPG_TTY=$(tty)
 
 if [ -f ~/.bash_private ]; then
   source ~/.bash_private
@@ -19,3 +20,9 @@ export PATH
 if [ -f /usr/local/bin/hub ]; then
   eval "$(hub alias -s)"
 fi
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+# heroku autocomplete setup
+HEROKU_AC_BASH_SETUP_PATH=/Users/brianp/Library/Caches/heroku/autocomplete/bash_setup && test -f $HEROKU_AC_BASH_SETUP_PATH && source $HEROKU_AC_BASH_SETUP_PATH;
