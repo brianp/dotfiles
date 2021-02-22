@@ -6,6 +6,12 @@ if [ -f ~/.bash_private ]; then
   source ~/.bash_private
 fi
 
+if [ -f ~/.nix-profile/etc/profile.d/nix.sh ]; then
+  source ~/.nix-profile/etc/profile.d/nix.sh
+fi
+
+eval "$(direnv hook bash)"
+
 source ~/.git-completion.bash
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWSTASHSTATE=1
