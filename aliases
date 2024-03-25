@@ -1,0 +1,19 @@
+export GPG_TTY=$(tty)
+
+if [ -f ~/.bash_private ]; then
+  source ~/.bash_private
+fi
+
+if [ -f ~/.nix-profile/etc/profile.d/nix.sh ]; then
+  source ~/.nix-profile/etc/profile.d/nix.sh
+fi
+
+export EDITOR=nvim
+
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="$PATH:/opt/homebrew/bin"
+export PATH="$HOME/.cargo/env:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+source $HOME/.cargo/env
+
+eval "$(rbenv init -)"
