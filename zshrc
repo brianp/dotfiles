@@ -4,7 +4,7 @@ fi
 
 ## [Completion]
 ## Completion scripts setup. Remove the following line to uninstall
-[[ -f /Users/tari/.dart-cli-completion/zsh-config.zsh ]] && . /Users/tari/.dart-cli-completion/zsh-config.zsh || true
+[[ -f ~/.dart-cli-completion/zsh-config.zsh ]] && . ~/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
 
