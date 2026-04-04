@@ -14,6 +14,11 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="$PATH:/opt/homebrew/bin"
 export PATH="$HOME/.cargo/env:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/Library/Android/sdk/tools:$HOME/Library/Android/sdk/platform-tools:$PATH"
+export PATH="$PATH":"$HOME/.pub-cache/bin"
 source $HOME/.cargo/env
 
 eval "$(rbenv init -)"
+
+# alias flutter="fvm flutter"
+# alias dart="fvm dart"

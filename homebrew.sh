@@ -32,14 +32,20 @@ brew install ruby-build
 brew install tmux
 brew install wget
 
+# Tari
 brew install cmake
 brew install protofbuf
 brew install tor
 brew install automake
 
+# Tari LaunchPad
 # brew install yarn
 # brew install nvm
+#
+# Tari Ledger
+brew libffi
 
+# Cycladat
 brew tap leoafarias/fvm
 brew install fvm
 
