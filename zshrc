@@ -8,7 +8,14 @@ zstyle ':vcs_info:git:*' formats $' %F{magenta}\ue0a0 %b%f'
 zstyle ':vcs_info:*' enable git
 setopt PROMPT_SUBST
 precmd() { vcs_info }
-PROMPT=$'%F{117}%n%f@%F{red}r%F{yellow}a%F{green}i%F{cyan}n%F{blue}b%F{magenta}o%F{red}x%f %F{blue}%~%f${vcs_info_msg_0_} %(?.%F{yellow}.%F{red})\uf0e7%f '
+_host_colors=(red yellow green cyan blue magenta)
+_colored_host=""
+_host_name="$(hostname -s)"
+for (( i=1; i<=${#_host_name}; i++ )); do
+  _c=${_host_colors[$(( (i - 1) % ${#_host_colors} + 1 ))]}
+  _colored_host+="%F{$_c}${_host_name[$i]}%f"
+done
+PROMPT=$'%F{117}%n%f@'"${_colored_host}"$' %F{blue}%~%f${vcs_info_msg_0_} %(?.%F{yellow}.%F{red})\uf0e7%f '
 
 ## [Completion]
 ## Completion scripts setup. Remove the following line to uninstall
