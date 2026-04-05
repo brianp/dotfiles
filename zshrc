@@ -2,14 +2,20 @@ if [ -f ~/.aliases ]; then
   source ~/.aliases
 fi
 
+# ===== Prompt =====
+autoload -Uz vcs_info
+zstyle ':vcs_info:git:*' formats $' %F{magenta}\ue0a0 %b%f'
+zstyle ':vcs_info:*' enable git
+setopt PROMPT_SUBST
+precmd() { vcs_info }
+PROMPT=$'%F{117}%n%f@%F{red}r%F{yellow}a%F{green}i%F{cyan}n%F{blue}b%F{magenta}o%F{red}x%f %F{blue}%~%f${vcs_info_msg_0_} %(?.%F{yellow}.%F{red})\uf0e7%f '
+
 ## [Completion]
 ## Completion scripts setup. Remove the following line to uninstall
 [[ -f ~/.dart-cli-completion/zsh-config.zsh ]] && . ~/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
 
-# amp
-export PATH="$HOME/.local/bin:$PATH"
 
 fpath=(~/.zsh/completions $fpath)
 autoload -U compinit
@@ -17,10 +23,11 @@ compinit
 
 # ===== FZF Configuration =====
 # Set up fzf key bindings and fuzzy completion
-source <(fzf --zsh)
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/doc/fzf/examples/completion.zsh
 
-# fzf defaults with tmux popup support
-export FZF_DEFAULT_OPTS='--height 40% --tmux bottom,40% --layout reverse --border'
+# fzf defaults
+export FZF_DEFAULT_OPTS='--height 40% --layout reverse --border'
 
 # Use fd if available for faster file finding
 if command -v fd &> /dev/null; then
@@ -62,4 +69,5 @@ alias la='eza -a'
 alias lt='eza --tree --level=2'
 
 # zsh-autosuggestions
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Install: git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+[[ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
