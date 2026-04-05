@@ -2,12 +2,25 @@
 export EDITOR=nvim
 export VISUAL=nvim
 
+# homebrew (macOS)
+if [ -d /opt/homebrew ]; then
+  export PATH="/opt/homebrew/bin:$PATH"
+  export GPG_TTY=$(tty)
+  export PATH="$HOME/Library/Android/sdk/tools:$HOME/Library/Android/sdk/platform-tools:$PATH"
+fi
+
+# private env (tokens, etc)
+[ -f ~/.bash_private ] && source ~/.bash_private
+
 # uv
 export PATH="$HOME/.local/bin:$PATH"
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init - zsh)"
+eval "$(rbenv init -)"
+
+# cargo
+. "$HOME/.cargo/env"
 
 # fvm
 export PATH="$HOME/fvm/default/bin:$HOME/fvm/bin:$PATH"
